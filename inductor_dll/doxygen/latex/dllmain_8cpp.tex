@@ -1,0 +1,100 @@
+\hypertarget{dllmain_8cpp}{}\section{dllmain.\+cpp File Reference}
+\label{dllmain_8cpp}\index{dllmain.\+cpp@{dllmain.\+cpp}}
+{\ttfamily \#include \char`\"{}dll.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$windows.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+stdcall void \hyperlink{dllmain_8cpp_a023539ebb2bcc2580d068f2e1f01ef01}{simuser} (double \hyperlink{dllmain_8cpp_a87accd1af8e0aff4b818d891374f7cec}{t}, double \hyperlink{dllmain_8cpp_ad5f8b5954a24317067c62697d6524214}{delt}, double $\ast$\hyperlink{dllmain_8cpp_a88b879aa32e1373f5e19154d3d583fd3}{in}, double $\ast$\hyperlink{dllmain_8cpp_a2ad90f1bc93c017909bc5527b95668b8}{out})
+\begin{DoxyCompactList}\small\item\em D\+LL routine funtion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{dllmain_8cpp_a87accd1af8e0aff4b818d891374f7cec}{t}
+\begin{DoxyCompactList}\small\item\em Time, passed from P\+S\+IM by value. \end{DoxyCompactList}\item 
+double \hyperlink{dllmain_8cpp_ad5f8b5954a24317067c62697d6524214}{delt}
+\begin{DoxyCompactList}\small\item\em Time step, passed from P\+S\+IM by value. \end{DoxyCompactList}\item 
+double $\ast$ \hyperlink{dllmain_8cpp_a88b879aa32e1373f5e19154d3d583fd3}{in}
+\begin{DoxyCompactList}\small\item\em Input array, passed from P\+S\+IM by reference. \end{DoxyCompactList}\item 
+double $\ast$ \hyperlink{dllmain_8cpp_a2ad90f1bc93c017909bc5527b95668b8}{out}
+\begin{DoxyCompactList}\small\item\em Output array, sent back to P\+S\+IM (Note\+: the values of out\mbox{[}$\ast$\mbox{]} can be modified in P\+S\+IM) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{dllmain.\+cpp@{dllmain.\+cpp}!simuser@{simuser}}
+\index{simuser@{simuser}!dllmain.\+cpp@{dllmain.\+cpp}}
+\subsubsection[{\texorpdfstring{simuser(double t, double delt, double $\ast$in, double $\ast$out)}{simuser(double t, double delt, double *in, double *out)}}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+stdcall void simuser (
+\begin{DoxyParamCaption}
+\item[{double}]{t, }
+\item[{double}]{delt, }
+\item[{double $\ast$}]{in, }
+\item[{double $\ast$}]{out}
+\end{DoxyParamCaption}
+)}\hypertarget{dllmain_8cpp_a023539ebb2bcc2580d068f2e1f01ef01}{}\label{dllmain_8cpp_a023539ebb2bcc2580d068f2e1f01ef01}
+
+
+D\+LL routine funtion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Time, passed from P\+S\+IM by value \\
+\hline
+{\em delt} & Time step, passed from P\+S\+IM by value \\
+\hline
+{\em in} & Input array, passed from P\+S\+IM by reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output array, sent back to P\+S\+IM (Note\+: the values of out\mbox{[}$\ast$\mbox{]} can be modified in P\+S\+IM)
+\end{DoxyReturn}
+The maximum length of the input and output array \char`\"{}in\char`\"{} and \char`\"{}out\char`\"{} is 30.
+
+P\+S\+IM calls the D\+LL routine at each simulation time step. However, when the inputs of the D\+LL block are connected to the output of one of these discrete elements (zero-\/order hold, unit delay, integrator, differentiator, z-\/domain transfer function block, and digital filters), the D\+LL block is considered as a discrete element. In this case, the D\+LL block is called only at the discrete times.
+
+The D\+LL block receives the values from P\+S\+IM as the input, performs the calculation, and sends the output back to P\+S\+IM. The node assignments are\+: the input nodes are on the left, and the output nodes are on the right. The sequence is from the top to the bottom. Define \char`\"{}sum\char`\"{} as \char`\"{}static\char`\"{} in order to retain its value.
+
+$<$ Variable to recieve voltage value
+
+$<$ Variable to recieve current value
+
+Receive the voltage from P\+S\+IM
+
+Integrate the voltage to obtain the flux linkage
+
+Calculate the current
+
+Send the current back to P\+S\+IM
+
+This is a method that does so much that I must write an epic novel just to describe how much it truly does. 
+
+\subsection{Variable Documentation}
+\index{dllmain.\+cpp@{dllmain.\+cpp}!delt@{delt}}
+\index{delt@{delt}!dllmain.\+cpp@{dllmain.\+cpp}}
+\subsubsection[{\texorpdfstring{delt}{delt}}]{\setlength{\rightskip}{0pt plus 5cm}double delt}\hypertarget{dllmain_8cpp_ad5f8b5954a24317067c62697d6524214}{}\label{dllmain_8cpp_ad5f8b5954a24317067c62697d6524214}
+
+
+Time step, passed from P\+S\+IM by value. 
+
+\index{dllmain.\+cpp@{dllmain.\+cpp}!in@{in}}
+\index{in@{in}!dllmain.\+cpp@{dllmain.\+cpp}}
+\subsubsection[{\texorpdfstring{in}{in}}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ in}\hypertarget{dllmain_8cpp_a88b879aa32e1373f5e19154d3d583fd3}{}\label{dllmain_8cpp_a88b879aa32e1373f5e19154d3d583fd3}
+
+
+Input array, passed from P\+S\+IM by reference. 
+
+\index{dllmain.\+cpp@{dllmain.\+cpp}!out@{out}}
+\index{out@{out}!dllmain.\+cpp@{dllmain.\+cpp}}
+\subsubsection[{\texorpdfstring{out}{out}}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ out}\hypertarget{dllmain_8cpp_a2ad90f1bc93c017909bc5527b95668b8}{}\label{dllmain_8cpp_a2ad90f1bc93c017909bc5527b95668b8}
+
+
+Output array, sent back to P\+S\+IM (Note\+: the values of out\mbox{[}$\ast$\mbox{]} can be modified in P\+S\+IM) 
+
+\index{dllmain.\+cpp@{dllmain.\+cpp}!t@{t}}
+\index{t@{t}!dllmain.\+cpp@{dllmain.\+cpp}}
+\subsubsection[{\texorpdfstring{t}{t}}]{\setlength{\rightskip}{0pt plus 5cm}double t}\hypertarget{dllmain_8cpp_a87accd1af8e0aff4b818d891374f7cec}{}\label{dllmain_8cpp_a87accd1af8e0aff4b818d891374f7cec}
+
+
+Time, passed from P\+S\+IM by value. 
+

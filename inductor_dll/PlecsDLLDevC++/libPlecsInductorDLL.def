@@ -1,0 +1,5 @@
+EXPORTS
+    plecsOutput @1
+    plecsSetSizes @2
+    plecsStart @3
+    plecsTerminate @4

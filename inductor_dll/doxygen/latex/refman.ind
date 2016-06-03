@@ -1,0 +1,45 @@
+\begin{theindex}
+
+  \item {\+\_\+\+\_\+declspec}
+    \subitem {dll.\+h}, \hyperpage{3}
+
+  \indexspace
+
+  \item {delt}
+    \subitem {dll.\+h}, \hyperpage{4}
+    \subitem {dllmain.\+cpp}, \hyperpage{5}
+  \item {dll.\+h}, \hyperpage{3}
+    \subitem {\+\_\+\+\_\+declspec}, \hyperpage{3}
+    \subitem {delt}, \hyperpage{4}
+    \subitem {in}, \hyperpage{4}
+    \subitem {out}, \hyperpage{4}
+  \item {dllmain.\+cpp}, \hyperpage{4}
+    \subitem {delt}, \hyperpage{5}
+    \subitem {in}, \hyperpage{5}
+    \subitem {out}, \hyperpage{5}
+    \subitem {simuser}, \hyperpage{4}
+    \subitem {t}, \hyperpage{5}
+
+  \indexspace
+
+  \item {in}
+    \subitem {dll.\+h}, \hyperpage{4}
+    \subitem {dllmain.\+cpp}, \hyperpage{5}
+
+  \indexspace
+
+  \item {out}
+    \subitem {dll.\+h}, \hyperpage{4}
+    \subitem {dllmain.\+cpp}, \hyperpage{5}
+
+  \indexspace
+
+  \item {simuser}
+    \subitem {dllmain.\+cpp}, \hyperpage{4}
+
+  \indexspace
+
+  \item {t}
+    \subitem {dllmain.\+cpp}, \hyperpage{5}
+
+\end{theindex}
